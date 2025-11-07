@@ -1,0 +1,32 @@
+### Sophos MDR - Endpoint Protection v5.0
+
+- Sophos SURF tool can load SDU (Sophos Diagnostic Unit) and CTR (Customer Trace Report) archive files
+- Devices DO NOT require manual configurations (to use) after installation of Update Cache
+- Forensic snapshots are not created for every detection, but rather for malicious detections and threats, and can be generated on-demand for analysis
+- win `netsh winhttp show proxy` :: show current system proxy configs
+- Server Lockdown is not included in base policy template (in the Sophos Central Partner Dashboard)
+- Troubleshooting Phases: // sequence
+    - Issue Definition
+    - Root Cause Analysis: check config of affected functions, logs files, etc.
+    - Verification Testing
+- Data in the Sophos Update Cache retire folder is purged after a total of 8 days of inactivity: 3days after moving from the **v3 cache**, it is moved to the retire folder, and then purged 5days after being moved to the retire folder (IF not requested by a device).
+- Enable `Message Relays` for devices without direct internet connection, to allow comms with Sophos Central.
+- Base Policies CANNOT be disabled
+- A Sophos Central account can only be assigned to **one** global template in the Central Partner Dashboard
+- override Sophos Central settings on a protected device for a maximum of **4**hrs to troubleshoot issues
+- Sophos Central SIEM Integration script uses OAuth 2.0, authenticating by generating a time-limited JWT using a ClientID and Client Secret, (obtained from the API Credentials Management page)
+- Sophos Management Comms Systems (MCS) manages traffic from devices to Sophos Central, with devices communicating via secure, cloud-based systems
+- Message Relays: 
+    - route MCS traffic for clients with restricted Internet access
+    - increases the number of clients you can manage
+    - can reduce bandwidth for very large sites
+- "LAST CACHE UPDATE" showing a date in the future usually indicates a system error, where a future date/time was set as a default value, or incorrect cache-related settings.
+- `gpupdate /force` force-refresh on GP on a computer
+- `Directory.Read.All` :: API permission needed to add to the app registration in Azure for Sophos Central to successfully synchronize with EntraID
+- `gpresult` view Resultant Set of Policy (RSoP) applied to user/computer
+- `Test-Connection` :: test the connection to the DC from a device with the AD Sync Utility installed
+- Sophos uses certificate pinning to exclude Sophos domains from TLS decryption
+- Run the Sophos Diagnostic Utility (for Windows) with:
+    - Administrator Command Prompt
+    - Sophos Central Admin
+- When clearing the local AutoUpdate cache, you must rename the *decoded* and *repo* folders. 
